@@ -200,7 +200,7 @@ ok      todo-app/tests  0.255s
 - Порт: 3000
 - Логин: `admin`
 - Пароль: `admin` (после нужно поменять)
-- Для создания дашбордов нужно связть Grafana с Prometheus и в адресе вписать http://localhost:9090
+- Для создания дашбордов нужно связть Grafana с Prometheus и в адресе вписать http://prometheus:9090
 
 ### Пример Дашборда
 ![alt text](image.png)

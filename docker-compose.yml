@@ -7,6 +7,7 @@ services:
       - ./.env:/app/.env  # Монтируем .env в контейнер
     expose:
       - "8080"
+      - "2112" 
     environment:
       DB_HOST: db  # Указываем имя хоста контейнера базы данных
       DB_PORT: 5432
@@ -46,6 +47,22 @@ services:
       - "80:80"
     depends_on:
       - app
+    networks:
+      - app-network
+
+  prometheus:
+    image: prom/prometheus
+    expose:
+      - "9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - app-network
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
     networks:
       - app-network
 
